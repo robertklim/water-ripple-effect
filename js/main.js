@@ -20,14 +20,13 @@ function setup() {
         previousState[i] = new Array(rows);
     }
 
-    // Insert values
+    // Initialize values as black color
     for (let i = 0; i < cols; i++) {
         for (let j = 0; j < rows; j++) {
-            currentState[i][j] = 100;
-            previousState[i][j] = 100;
+            currentState[i][j] = 0;
+            previousState[i][j] = 0;
         }
     }
-    // console.table(currentState);
 
 }
 
@@ -58,6 +57,7 @@ function draw() {
     let tempState = previousState;
     previousState = currentState;
     currentState = tempState;
-    
+
+    previousState[floor(random(width))][floor(random(height))] = 255;
 
 }
